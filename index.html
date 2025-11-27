@@ -2,9 +2,8 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HONG KONG: The Vertical Narrative</title>
+    <title>HONG KONG: The Definitive Guide</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +16,7 @@
             --hk-neon: #7000CC;      /* 霓虹紫 */
             --ink-black: #121212;    /* 墨黑 */
             --paper-white: #fdfbf7;  /* 米白紙張感 */
+            --gold: #D4AF37;
         }
 
         * { box-sizing: border-box; }
@@ -31,386 +31,151 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .serif-font {
-            font-family: 'Prata', serif;
-            font-weight: 400;
-        }
-
+        h1, h2, h3, .serif-font { font-family: 'Prata', serif; font-weight: 400; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
         /* === HERO SECTION === */
         .hero {
-            height: 100vh;
-            width: 100%;
-            position: relative;
-            background: #000;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 100vh; width: 100%; position: relative; background: #000;
+            overflow: hidden; display: flex; align-items: center; justify-content: center;
         }
-
         .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://image.pollinations.ai/prompt/Hong%20Kong%20neon%20signs%20rainy%20street%20night%20wong%20kar%20wai%20style%20cinematic?width=1920&height=1080&nologo=true') center/cover;
-            opacity: 0.7;
-            filter: contrast(1.2) saturate(1.1);
-            animation: zoomIn 20s infinite alternate;
+            opacity: 0.6; filter: contrast(1.2) saturate(1.1); animation: zoomIn 20s infinite alternate;
         }
-
         .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 60px 40px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(5px);
+            position: relative; z-index: 2; text-align: center; color: white;
+            border: 1px solid rgba(255,255,255,0.3); padding: 60px 40px;
+            background: rgba(0,0,0,0.4); backdrop-filter: blur(5px);
         }
-
-        .hero h1 {
-            font-size: 5rem;
-            margin: 0;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
-        }
-
-        .hero-sub {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            margin-top: 20px;
-            color: var(--hk-red);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
+        .hero h1 { font-size: 5rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+        .hero-sub { font-size: 1.2rem; letter-spacing: 3px; margin-top: 20px; color: var(--hk-red); font-weight: 700; text-transform: uppercase; }
 
         /* === NAVIGATION === */
         .navbar {
-            position: sticky;
-            top: 0;
-            background: rgba(253, 251, 247, 0.98);
-            border-bottom: 1px solid #ddd;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
+            position: sticky; top: 0; background: rgba(253, 251, 247, 0.98);
+            border-bottom: 1px solid #ddd; padding: 15px 30px; display: flex;
+            justify-content: space-between; align-items: center; z-index: 100;
         }
-
         .nav-logo { font-family: 'Prata'; font-size: 1.5rem; font-weight: bold; color: var(--ink-black); }
-        
-        .nav-links a {
-            margin-left: 25px;
-            color: #666;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-        }
-        
+        .nav-links a { margin-left: 25px; color: #666; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
         .nav-links a:hover { color: var(--hk-red); }
 
         /* === MAGAZINE LAYOUT === */
         .magazine-section {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            min-height: 90vh;
-            border-bottom: 1px solid #e0e0e0;
+            display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh; border-bottom: 1px solid #e0e0e0;
         }
-
-        .visual-side {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .visual-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s ease;
-        }
+        .visual-side { position: relative; overflow: hidden; }
+        .visual-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
         .magazine-section:hover .visual-img { transform: scale(1.03); }
-
+        
         .content-side {
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: var(--paper-white);
-            position: relative;
+            padding: 60px 50px; display: flex; flex-direction: column; justify-content: center;
+            background: var(--paper-white); position: relative;
         }
-
-        /* 直排裝飾文字 */
-        .vertical-text {
-            position: absolute;
-            top: 40px;
-            right: 20px;
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-            font-family: 'Noto Sans TC';
-            font-weight: 900;
-            letter-spacing: 5px;
-            color: rgba(0,0,0,0.05);
-            font-size: 4rem;
-            user-select: none;
-            pointer-events: none;
-        }
-
-        .magazine-section.alt {
-            grid-template-columns: 0.8fr 1.2fr;
-        }
+        .magazine-section.alt { grid-template-columns: 1fr 1fr; }
         .magazine-section.alt .content-side { order: 1; }
         .magazine-section.alt .visual-side { order: 2; }
 
         .day-label {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--hk-red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            display: inline-block;
-            border-bottom: 2px solid var(--hk-red);
-            padding-bottom: 3px;
+            font-size: 0.9rem; font-weight: 700; color: var(--hk-red); text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 10px; border-bottom: 2px solid var(--hk-red);
+            padding-bottom: 3px; display: inline-block;
         }
+        .section-title { font-size: 3rem; line-height: 1.1; margin-bottom: 30px; color: var(--ink-black); }
 
-        .section-title {
-            font-size: 3rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--ink-black);
+        /* === ITINERARY LIST (重點修改區) === */
+        .itinerary-list { list-style: none; padding: 0; margin: 0; }
+        .itinerary-item {
+            padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex; align-items: flex-start; transition: 0.3s;
         }
-
-        .section-desc {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        /* === ITINERARY CARD === */
-        .schedule-card {
-            background: white;
-            border: 1px solid #eee;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            position: relative;
-        }
+        .itinerary-item:hover { background: rgba(0,0,0,0.02); padding-left: 10px; }
         
-        .schedule-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--hk-green);
+        .time-col { 
+            width: 80px; font-family: 'Prata'; font-size: 1.2rem; color: #999; margin-top: 5px; 
         }
-        #day1 .schedule-card::before { background: var(--hk-red); }
-        #day2 .schedule-card::before { background: var(--hk-neon); }
-        #day3 .schedule-card::before { background: var(--hk-green); }
-
-        .schedule-item {
-            display: flex;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 10px;
-        }
-        .schedule-item:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+        .info-col { flex: 1; }
         
-        .sch-time {
-            font-weight: 700;
-            color: #999;
-            width: 60px;
-            font-size: 0.9rem;
-            font-family: 'Inter';
+        /* 景點標題 (點擊觸發介紹) */
+        .spot-title {
+            font-size: 1.4rem; font-weight: 700; color: var(--ink-black);
+            cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid transparent; transition: 0.2s;
         }
-        .sch-detail { flex: 1; }
-        
-        /* === 關鍵功能：標題與地圖連結 === */
-        .spot-link {
-            font-weight: 700;
-            color: var(--ink-black);
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            border-bottom: 1px solid transparent;
-            transition: 0.2s;
-        }
-        .spot-link:hover { color: var(--hk-red); border-bottom-color: var(--hk-red); }
-        .spot-link::before { content: '📖'; font-size: 0.8em; opacity: 0.6; }
+        .spot-title:hover { color: var(--hk-red); border-bottom-color: var(--hk-red); }
+        .spot-title::before { content: '📖'; font-size: 0.8em; opacity: 0.7; }
 
+        /* 地圖連結 (點擊觸發 Google Maps) */
+        .map-row {
+            margin-top: 8px; font-size: 0.9rem; color: #666;
+            display: flex; align-items: center; gap: 15px;
+        }
         .map-link {
-            font-size: 0.85rem;
-            color: var(--hk-green);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            margin-left: 10px;
-            font-weight: 600;
-            background: rgba(0,114,114,0.05);
-            padding: 2px 8px;
-            border-radius: 4px;
+            color: var(--hk-green); font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 4px;
+            border-bottom: 1px dotted var(--hk-green);
         }
-        .map-link:hover { background: var(--hk-green); color: white; }
-        .map-link::before { content: '📍'; }
+        .map-link:hover { background: var(--hk-green); color: white; border-bottom: none; }
+        .map-link::before { content: '📍'; font-size: 0.9em; }
 
-        .sch-meta { 
-            font-size: 0.85rem; 
-            color: #666; 
-            margin-top: 4px; 
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        /* 地鐵出口連結 */
-        .exit-link {
-            color: #555;
-            text-decoration: underline dotted;
-            cursor: pointer;
-        }
-        .exit-link:hover { color: var(--hk-red); }
-
-        .mini-tag {
-            font-size: 0.7rem;
-            background: #eee;
-            padding: 1px 6px;
-            border-radius: 3px;
-            color: #777;
+        .tag-row { margin-top: 8px; }
+        .mini-tag { 
+            font-size: 0.75rem; background: #eee; padding: 2px 8px; border-radius: 4px; 
+            color: #555; margin-right: 5px; display: inline-block;
         }
 
-        /* Button */
-        .btn-read {
-            background: transparent;
-            color: var(--ink-black);
-            border: 1px solid var(--ink-black);
-            padding: 15px 30px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: 0.3s;
-            align-self: flex-start;
-            font-family: 'Prata', serif;
-        }
-        .btn-read:hover {
-            background: var(--ink-black);
-            color: white;
-        }
-
-        /* === MODAL (深度內容) === */
+        /* === MODAL (深度閱讀) === */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: rgba(255,255,255,0.98);
-            overflow-y: auto;
-            animation: fadeIn 0.4s;
+            display: none; position: fixed; z-index: 9999; left: 0; top: 0;
+            width: 100%; height: 100%; background: rgba(255,255,255,0.98);
+            overflow-y: auto; animation: fadeIn 0.4s;
         }
-
-        .modal-container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px 100px;
-        }
-
+        .modal-container { max-width: 900px; margin: 50px auto; padding: 0 20px 100px; }
         .close-modal {
-            position: fixed;
-            top: 30px; right: 30px;
-            font-size: 40px;
-            cursor: pointer;
-            color: var(--ink-black);
-            transition: 0.3s;
-            z-index: 10000;
+            position: fixed; top: 30px; right: 30px; font-size: 40px; cursor: pointer;
+            color: var(--ink-black); transition: 0.3s; z-index: 10000;
         }
         .close-modal:hover { transform: rotate(90deg); color: var(--hk-red); }
 
-        /* Article Styles */
-        .article-header { text-align: center; margin-bottom: 50px; }
-        .article-title { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.2; }
-        .article-meta { color: #888; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
-        
-        .drop-cap {
-            float: left;
-            font-family: 'Prata';
-            font-size: 6rem;
-            line-height: 0.8;
-            margin-right: 15px;
-            margin-top: 5px;
-            color: var(--hk-red);
-        }
-
-        .article-content {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 2;
-            text-align: justify;
-        }
-        .article-content h3 {
-            font-size: 1.8rem;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--hk-green);
-            padding-left: 15px;
-        }
-
-        /* 📸 Gallery Strip */
+        /* Gallery */
         .gallery-strip {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            margin: 40px 0;
-            scrollbar-width: thin;
+            display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; margin: 40px 0;
         }
-        .gallery-item {
-            flex: 0 0 500px;
-            height: 350px;
-            position: relative;
-        }
+        .gallery-item { flex: 0 0 500px; height: 350px; position: relative; }
         .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(30%); transition: 0.5s;
+            width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: 0.5s;
         }
         .gallery-item:hover img { filter: grayscale(0%); }
-        .caption {
-            margin-top: 5px; font-size: 0.8rem; color: #666; font-style: italic;
+        .caption { margin-top: 5px; font-size: 0.8rem; color: #666; font-style: italic; }
+
+        /* Article */
+        .article-title { font-size: 3rem; margin-bottom: 10px; text-align: center; }
+        .article-content { font-size: 1.1rem; color: #333; line-height: 2; text-align: justify; }
+        .article-content h3 { 
+            font-size: 1.6rem; margin-top: 50px; margin-bottom: 20px; color: var(--ink-black);
+            border-left: 4px solid var(--hk-red); padding-left: 15px;
+        }
+        .drop-cap {
+            float: left; font-family: 'Prata'; font-size: 5rem; line-height: 0.8;
+            margin-right: 15px; margin-top: 5px; color: var(--hk-red);
         }
 
         /* RWD */
         @media (max-width: 768px) {
             .magazine-section, .magazine-section.alt { grid-template-columns: 1fr; }
-            .visual-side { height: 300px; }
-            .content-side { padding: 40px 25px; }
-            .section-title { font-size: 2.2rem; }
+            .visual-side { height: 250px; }
+            .content-side { padding: 30px 20px; }
+            .section-title { font-size: 2rem; }
             .hero h1 { font-size: 3rem; }
             .gallery-item { flex: 0 0 85vw; height: 250px; }
-            .vertical-text { display: none; }
-            .article-title { font-size: 2.5rem; }
         }
-
         @keyframes zoomIn { from { transform: scale(1); } to { transform: scale(1.1); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
     </style>
 </head>
 <body>
-
-    <script>
-        (function() {
-            var password = "beautyyuna"; 
-            var input = prompt("🔒 本網站受密碼保護 (Private Access Only)\n請輸入密碼：");
-            
-            if (input !== password) {
-                document.body.innerHTML = "<div style='display:flex;justify-content:center;align-items:center;height:100vh;background:#121212;color:white;font-family:sans-serif;flex-direction:column;'><h1>🚫 Access Denied</h1><p>密碼錯誤，請重新整理頁面。</p></div>";
-                throw new Error("Stop");
-            }
-        })();
-    </script>
 
     <nav class="navbar">
         <div class="nav-logo">HK・JOURNAL</div>
@@ -425,163 +190,134 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <h1>HONG KONG</h1>
-            <div class="hero-sub">Verticality & Density</div>
-            <p style="font-style:italic; margin-top:20px;">A Visual Study of the Urban Jungle</p>
+            <div class="hero-sub">The Vertical Narrative</div>
         </div>
     </header>
 
     <section class="magazine-section" id="day1">
         <div class="visual-side">
-            <img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Tai%20Kwun%20spiral%20staircase%20concrete%20artistic%20light?width=1000&height=1200&nologo=true" class="visual-img" alt="Tai Kwun">
+            <img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Tai%20Kwun%20spiral%20staircase%20artistic%20light?width=1000&height=1200&nologo=true" class="visual-img">
         </div>
         <div class="content-side">
-            <div class="vertical-text">歷史重構</div>
             <span class="day-label">Day 01・Heritage & Skyline</span>
-            <h2 class="section-title">The Revitalization<br>of Tai Kwun</h2>
-            <p class="section-desc">從殖民地權力中心到當代藝術客廳。瑞士建築師 Herzog & de Meuron 如何用鋁磚與懸浮量體，重塑中環古蹟。</p>
-
-            <div class="schedule-card">
-                <div class="schedule-item">
-                    <div class="sch-time">11:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-taikwun')">大館 Tai Kwun</span>
-                            <a href="https://maps.google.com/?cid=5216991637954630797&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://maps.google.com/?cid=2921980224498789782&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="exit-link">中環 D2 出口</a>
-                            <span class="mini-tag">Herzog & de Meuron</span>
+            <h2 class="section-title">History <br>Reimagined</h2>
+            
+            <ul class="itinerary-list">
+                <li class="itinerary-item">
+                    <div class="time-col">11:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-taikwun')">大館 Tai Kwun</div>
+                        <div class="tag-row"><span class="mini-tag">古蹟活化</span><span class="mini-tag">Herzog & de Meuron</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=5216991637954630797&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">景點地圖</a>
+                            <a href="https://maps.google.com/?cid=2921980224498789782&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">中環 D2 出口</a>
                         </div>
                     </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="sch-time">14:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-kennedy')">堅尼地城 Kennedy Town</span>
-                            <a href="https://maps.google.com/?cid=6395582442532368940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://maps.google.com/?cid=6395582442532368940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="exit-link">C 出口 (石牆樹)</a>
-                            <span class="mini-tag">縉紳化</span>
+                </li>
+                <li class="itinerary-item">
+                    <div class="time-col">14:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-kennedy')">堅尼地城 Kennedy Town</div>
+                        <div class="tag-row"><span class="mini-tag">縉紳化</span><span class="mini-tag">石牆樹</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=6395582442532368940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">海旁位置</a>
+                            <a href="https://maps.google.com/?cid=6395582442532368940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">C 出口</a>
                         </div>
                     </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="sch-time">18:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-peak')">太平山盧吉道 The Peak</span>
-                            <a href="https://maps.google.com/?cid=15124211730720292253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Peak+Tram+Terminus" target="_blank" class="exit-link">纜車總站</a>
-                            <span class="mini-tag">殖民歷史</span>
+                </li>
+                <li class="itinerary-item">
+                    <div class="time-col">18:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-peak')">太平山盧吉道 The Peak</div>
+                        <div class="tag-row"><span class="mini-tag">百萬夜景</span><span class="mini-tag">殖民歷史</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=15124211730720292253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">觀景台位置</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Peak+Tram+Terminus" target="_blank" class="map-link">纜車總站</a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <button class="btn-read" onclick="openModal('modal-day1')">Read Deep Dive</button>
+                </li>
+            </ul>
         </div>
     </section>
 
     <section class="magazine-section alt" id="day2">
         <div class="visual-side">
-            <img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Mong%20Kok%20neon%20signs%20rainy%20night%20cyberpunk?width=1000&height=1200&nologo=true" class="visual-img" alt="Mong Kok">
+            <img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Mong%20Kok%20neon%20signs%20rainy%20night%20cyberpunk?width=1000&height=1200&nologo=true" class="visual-img">
         </div>
         <div class="content-side">
-            <div class="vertical-text">密度美學</div>
-            <span class="day-label" style="border-color: var(--hk-neon); color: var(--hk-neon);">Day 02・Art & Cyberpunk</span>
-            <h2 class="section-title">Neon Lights &<br>Concrete Art</h2>
-            <p class="section-desc">穿梭於西九龍的國際級美術館與旺角的生猛街頭。體驗 M+ 的清水模靜謐與旺角每平方公里13萬人的極致密度。</p>
-
-            <div class="schedule-card">
-                <div class="schedule-item">
-                    <div class="sch-time">10:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-mplus')">M+ 博物館</span>
-                            <a href="https://maps.google.com/?cid=15739563810894928908&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://maps.google.com/?cid=14749907917770638938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="exit-link">九龍站 E 出口</a>
-                            <span class="mini-tag">視覺文化</span>
+            <span class="day-label" style="border-color:var(--hk-neon); color:var(--hk-neon)">Day 02・Culture & Density</span>
+            <h2 class="section-title">Neon & <br>Concrete</h2>
+            
+            <ul class="itinerary-list">
+                <li class="itinerary-item">
+                    <div class="time-col">10:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-mplus')">M+ 博物館</div>
+                        <div class="tag-row"><span class="mini-tag">視覺文化</span><span class="mini-tag">潛空間</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=15739563810894928908&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">博物館地圖</a>
+                            <a href="https://maps.google.com/?cid=14749907917770638938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">九龍站 E 出口</a>
                         </div>
                     </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="sch-time">15:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-k11')">K11 MUSEA</span>
-                            <a href="https://maps.google.com/?cid=17871774704331696604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://maps.google.com/?cid=2599557419039070020&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="exit-link">尖東 J 出口</a>
-                            <span class="mini-tag">文化矽谷</span>
+                </li>
+                <li class="itinerary-item">
+                    <div class="time-col">15:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-k11')">K11 MUSEA</div>
+                        <div class="tag-row"><span class="mini-tag">文化矽谷</span><span class="mini-tag">工匠精神</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=17871774704331696604&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">商場位置</a>
+                            <a href="https://maps.google.com/?cid=2599557419039070020&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">尖東 J 出口</a>
                         </div>
                     </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="sch-time">20:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-mk')">旺角 Mong Kok</span>
-                            <a href="https://maps.google.com/?cid=10756555422988640888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Mong+Kok+Station+Exit+E2" target="_blank" class="exit-link">E2 出口 (女人街)</a>
-                            <span class="mini-tag">賽博龐克</span>
+                </li>
+                <li class="itinerary-item">
+                    <div class="time-col">20:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-mk')">旺角 Mong Kok</div>
+                        <div class="tag-row"><span class="mini-tag">賽博龐克</span><span class="mini-tag">垂直城市</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=18255385939667396015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">女人街</a>
+                            <a href="https://maps.google.com/?cid=10756555422988640888&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">旺角 E2 出口</a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <button class="btn-read" onclick="openModal('modal-day2')">Read Deep Dive</button>
+                </li>
+            </ul>
         </div>
     </section>
 
     <section class="magazine-section" id="day3">
         <div class="visual-side">
-            <img src="https://image.pollinations.ai/prompt/Lantau%20Island%20Big%20Buddha%20misty%20mountains%20cinematic?width=1000&height=1200&nologo=true" class="visual-img" alt="Lantau">
+            <img src="https://image.pollinations.ai/prompt/Lantau%20Island%20Big%20Buddha%20misty%20mountains%20cinematic?width=1000&height=1200&nologo=true" class="visual-img">
         </div>
         <div class="content-side">
-            <div class="vertical-text">山海對話</div>
-            <span class="day-label" style="border-color: var(--hk-green); color: var(--hk-green);">Day 03・Engineering & Zen</span>
-            <h2 class="section-title">Between Sky<br>and Sea</h2>
-            <p class="section-desc">從人工島機場到雲端大佛。搭乘纜車俯瞰港珠澳大橋的工程奇蹟，隨後步入心經簡林的宗教哲學。</p>
-
-            <div class="schedule-card">
-                <div class="schedule-item">
-                    <div class="sch-time">10:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-lantau')">昂坪 360 & 大佛</span>
-                            <a href="https://maps.google.com/?cid=4332907027688063584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <a href="https://maps.google.com/?cid=1669904052641687780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="exit-link">東涌 B 出口</a>
-                            <span class="mini-tag">工程奇蹟</span>
+            <span class="day-label" style="border-color:var(--hk-green); color:var(--hk-green)">Day 03・Engineering & Zen</span>
+            <h2 class="section-title">Between Sky <br>& Sea</h2>
+            
+            <ul class="itinerary-list">
+                <li class="itinerary-item">
+                    <div class="time-col">10:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-lantau')">昂坪 360 & 大佛</div>
+                        <div class="tag-row"><span class="mini-tag">工程奇蹟</span><span class="mini-tag">宗教聖地</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=4332907027688063584&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">纜車站</a>
+                            <a href="https://maps.google.com/?cid=1669904052641687780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">東涌 B 出口</a>
                         </div>
                     </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="sch-time">15:00</div>
-                    <div class="sch-detail">
-                        <div>
-                            <span class="spot-link" onclick="openModal('modal-citygate')">東薈城 Outlets</span>
-                            <a href="https://maps.google.com/?cid=16182642354378582639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">地圖</a>
-                        </div>
-                        <div class="sch-meta">
-                            <span class="exit-link">東涌站直達</span>
-                            <span class="mini-tag">最後掃貨</span>
+                </li>
+                <li class="itinerary-item">
+                    <div class="time-col">15:00</div>
+                    <div class="info-col">
+                        <div class="spot-title" onclick="openModal('modal-citygate')">東薈城 Outlets</div>
+                        <div class="tag-row"><span class="mini-tag">購物</span><span class="mini-tag">機場快線</span></div>
+                        <div class="map-row">
+                            <a href="https://maps.google.com/?cid=16182642354378582639&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">商場地圖</a>
+                            <a href="https://maps.google.com/?cid=1669904052641687780&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">東涌站直達</a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <button class="btn-read" onclick="openModal('modal-day3')">Read Deep Dive</button>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -590,63 +326,51 @@
         <p style="font-size: 0.8rem; margin-top:10px; letter-spacing: 1px;">A CURATED GUIDE FOR ARCHITECTS & EXPLORERS</p>
     </footer>
 
-    <div id="modal-day1" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-day1')">&times;</span>
-        <div class="modal-container">
-            <div class="article-header">
-                <div class="article-meta">DAY 01 OVERVIEW</div>
-                <h2 class="article-title">Colonial History & The Skyline</h2>
-                <div style="width:50px; height:3px; background:var(--hk-red); margin:20px auto;"></div>
-            </div>
-            <div class="article-content">
-                <p>第一天的旅程是關於「權力」的。從中環的殖民地監獄（大館），到邊緣的屠房社區（堅尼地城），最後登上權力的頂峰（太平山）。這是一條穿越時空與階級的路線。</p>
-            </div>
-        </div>
-    </div>
-
     <div id="modal-taikwun" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-taikwun')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-taikwun')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
-                <div class="article-meta">Architecture / Urbanism</div>
-                <h2 class="article-title">Space & Power: The Tai Kwun Story</h2>
+                <h2 class="article-title">大館：空間的權力與釋放</h2>
             </div>
             <div class="gallery-strip">
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Tai%20Kwun%20courtyard%20mango%20tree?width=800&height=600&nologo=true"><div class="caption">檢閱廣場與芒果樹</div></div>
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Tai%20Kwun%20JC%20Contemporary%20aluminum%20bricks%20texture?width=800&height=600&nologo=true"><div class="caption">100% 回收鋁磚外牆</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Tai%20Kwun%20courtyard%20mango%20tree?width=800&height=600&nologo=true"><div class="caption">檢閱廣場</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Tai%20Kwun%20JC%20Contemporary%20aluminum%20bricks%20texture?width=800&height=600&nologo=true"><div class="caption">鋁磚外牆</div></div>
             </div>
             <div class="article-content">
-                <p><span class="drop-cap">大</span>館（Tai Kwun）是亞洲教科書級別的古蹟活化案例。這裡前身是「中區警署建築群」，在殖民地時期，這是一個令市民望而生畏的「權力封閉體」，高牆將其與繁華的中環商業區徹底隔絕。然而，這項耗資 38 億港幣的計畫，核心理念在於<strong>「打開封閉」</strong>。</p>
-                <h3>🧱 新舊對話：鋁磚的秘密</h3>
-                <p>負責設計的瑞士建築事務所 <strong>Herzog & de Meuron</strong> 植入了兩個懸浮的量體。請務必近距離觀察這兩棟新建築的外牆。那些深色的幾何磚塊，實際上是<strong>100% 回收鋁合金</strong>。設計師特意將鋁材打造出粗糙的孔隙質感，其靈感直接取自周圍古老監獄圍牆的花崗岩紋理。</p>
+                <p><span class="drop-cap">大</span>館（Tai Kwun）前身為「中區警署建築群」，集執法、司法、刑法於一身。在殖民地時期，這是一個令市民望而生畏的權力封閉體。然而，這項耗資 38 億港幣的活化計畫，核心理念在於「打開封閉」。</p>
+                <h3>新舊對話</h3>
+                <p>瑞士建築事務所 Herzog & de Meuron 植入了兩個懸浮的量體：賽馬會藝方與賽馬會立方。請務必近距離觀察外牆，那些深色的幾何磚塊，實際上是 100% 回收鋁合金，質感模仿了周圍古老監獄圍牆的花崗岩。</p>
             </div>
         </div>
     </div>
 
     <div id="modal-kennedy" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-kennedy')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-kennedy')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">堅尼地城：縉紳化的邊緣</h2>
             </div>
             <div class="gallery-strip">
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Kennedy%20Town%20New%20Praya%20sunset?width=800&height=600&nologo=true"><div class="caption">堅尼地城新海旁</div></div>
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20wall%20trees%20banyan%20roots%20on%20stone%20wall?width=800&height=600&nologo=true"><div class="caption">科士街石牆樹</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Kennedy%20Town%20New%20Praya%20sunset?width=800&height=600&nologo=true"><div class="caption">新海旁日落</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20wall%20trees%20banyan%20roots%20on%20stone%20wall?width=800&height=600&nologo=true"><div class="caption">石牆樹</div></div>
             </div>
             <div class="article-content">
                 <p><span class="drop-cap">堅</span>尼地城曾是屠房與焚化爐的所在地，是城市的背面。但隨著地鐵通車，這裡經歷了劇烈的縉紳化。修車廠變成了法式酒館，街坊與外籍人士在海邊並肩喝咖啡。</p>
+                <h3>石牆樹</h3>
+                <p>走出 C 出口，科士街的石牆樹是工程與自然博弈的奇蹟。細葉榕將根系扎入百年前的花崗岩護土牆中，展現了驚人的生命力。</p>
             </div>
         </div>
     </div>
 
     <div id="modal-peak" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-peak')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-peak')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">太平山：階級的頂端</h2>
             </div>
             <div class="gallery-strip">
                 <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Lugard%20Road%20night%20view?width=800&height=600&nologo=true"><div class="caption">盧吉道夜景</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Peak%20Tram%20green%20classic?width=800&height=600&nologo=true"><div class="caption">第六代纜車</div></div>
             </div>
             <div class="article-content">
                 <p><span class="drop-cap">1</span>904年，港英政府頒布《山頂區保留條例》，禁止華人居住於山頂。這裡是權力的物理象徵。如今，雖然法律已除，但山頂依舊是全球最昂貴的房產地段。</p>
@@ -656,38 +380,25 @@
         </div>
     </div>
 
-    <div id="modal-day2" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-day2')">&times;</span>
-        <div class="modal-container">
-            <div class="article-header">
-                <div class="article-meta">DAY 02 OVERVIEW</div>
-                <h2 class="article-title">The Vertical City</h2>
-                <div style="width:50px; height:3px; background:var(--hk-neon); margin:20px auto;"></div>
-            </div>
-            <div class="article-content">
-                <p>第二天聚焦於「密度」與「藝術」。從 M+ 的建築實驗，到 K11 的商業藝術，最後迷失在旺角的霓虹與人潮中。</p>
-            </div>
-        </div>
-    </div>
-
     <div id="modal-mplus" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-mplus')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-mplus')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">M+：隧道之上的藝術</h2>
             </div>
             <div class="gallery-strip">
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/M%2B%20Museum%20Found%20Space%20concrete?width=800&height=600&nologo=true"><div class="caption">M+ 地下「潛空間」</div></div>
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/M%2B%20Museum%20green%20ceramic%20tiles%20detail?width=800&height=600&nologo=true"><div class="caption">墨綠色陶瓦外牆</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/M%2B%20Museum%20Found%20Space%20concrete?width=800&height=600&nologo=true"><div class="caption">潛空間</div></div>
             </div>
             <div class="article-content">
-                <p><span class="drop-cap" style="color:var(--hk-neon)">M</span>+ 的選址極具挑戰性——它的正下方就是運作中的港鐵機場快線與東涌線隧道。一般建築師會避開這塊區域，但 Herzog & de Meuron 選擇了「擁抱」這個限制。他們大膽地挖掘了隧道周圍的泥土，創造了一個粗獷、工業風的地下展演空間，命名為<strong>「潛空間」(Found Space)</strong>。</p>
+                <p><span class="drop-cap">M</span>+ 的正下方是運作中的機場快線隧道。建築師 Herzog & de Meuron 大膽地挖掘了隧道周圍的泥土，創造了一個粗獷的「潛空間」(Found Space)。</p>
+                <h3>陶瓦外牆</h3>
+                <p>外牆覆蓋著墨綠色的陶瓦組件，靈感來自竹子。到了晚上，面向維港的一面會變成巨大的 LED 屏幕。</p>
             </div>
         </div>
     </div>
 
     <div id="modal-k11" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-k11')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-k11')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">K11 MUSEA：文化矽谷</h2>
@@ -702,52 +413,37 @@
     </div>
 
     <div id="modal-mk" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-mk')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-mk')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">旺角：密度的美學</h2>
             </div>
             <div class="gallery-strip">
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Mong%20Kok%20neon%20street%20night?width=800&height=600&nologo=true"><div class="caption">旺角賽博龐克</div></div>
+                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Mong%20Kok%20neon%20street%20night?width=800&height=600&nologo=true"><div class="caption">賽博龐克</div></div>
             </div>
             <div class="article-content">
-                <p><span class="drop-cap">全</span>球人口密度最高的地區之一。抬頭看，同一棟大廈裡，教會、拳館、書店、劏房層層疊加。這是 Cyberpunk 風格的現實寫照。</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-day3" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-day3')">&times;</span>
-        <div class="modal-container">
-            <div class="article-header">
-                <div class="article-meta">DAY 03 OVERVIEW</div>
-                <h2 class="article-title">Island of Contrasts</h2>
-                <div style="width:50px; height:3px; background:var(--hk-green); margin:20px auto;"></div>
-            </div>
-            <div class="article-content">
-                <p>第三天是宏大的工程敘事。我們將跨越海洋，見證填海造陸的機場與大橋，並在雲端的大佛前尋找內心的平靜。</p>
+                <p><span class="drop-cap">全</span>球人口密度最高的地區之一。抬頭看，同一棟大廈裡，教會、拳館、書店、劏房層層疊加。這是 Cyberpunk 風格的現實寫照。站在旺角道天橋，你可以捕捉到紅色小巴在招牌森林下穿梭的畫面。</p>
             </div>
         </div>
     </div>
 
     <div id="modal-lantau" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-lantau')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-lantau')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">大嶼山：工程與信仰</h2>
             </div>
             <div class="gallery-strip">
-                <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Ngong%20Ping%20cable%20car%20airport%20view?width=800&height=600&nologo=true"><div class="caption">纜車俯瞰機場與大橋</div></div>
                 <div class="gallery-item"><img src="https://image.pollinations.ai/prompt/Hong%20Kong%20Big%20Buddha%20statue?width=800&height=600&nologo=true"><div class="caption">天壇大佛</div></div>
             </div>
             <div class="article-content">
-                <p><span class="drop-cap" style="color:var(--hk-green)">昂</span>坪 360 纜車不僅是觀光設施，更是工程挑戰。坐在水晶車廂往下看，你會同時看到赤鱲角機場繁忙的飛機起降，以及蜿蜒在海上的白色巨龍——<strong>港珠澳大橋</strong>。這展現了香港作為基建強城的實力。</p>
+                <p><span class="drop-cap">昂</span>坪 360 纜車跨越海洋，腳下是港珠澳大橋的工程奇蹟。終點是天壇大佛，這座少見的「坐南向北」佛像，寓意著祝福中華大地。參拜需要攀登 268 級石階，是一種修行的隱喻。</p>
             </div>
         </div>
     </div>
 
     <div id="modal-citygate" class="modal">
-        <span class="close-modal" onclick="closeModal('modal-citygate')">×</span>
+        <span class="close-modal" onclick="closeModal('modal-citygate')">&times;</span>
         <div class="modal-container">
             <div class="article-header">
                 <h2 class="article-title">東薈城：交通樞紐</h2>
